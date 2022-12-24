@@ -26,7 +26,7 @@ public class Phone extends Bill{
         this.phone_id = id;
     }
 
-    public Phone(Long price, String number, String email, Operator operator, User user, String amount) {
+    public Phone(Double price, Long number, String email, Operator operator, User user, String amount) {
         super(price, number, email, operator, user);
         this.amount = amount;
     }

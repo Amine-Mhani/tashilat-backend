@@ -12,7 +12,7 @@ public class Internet extends Bill{
 
     private String forfait;
 
-    public Internet(Long price, String number, String email, Operator operator, User user, String forfait) {
+    public Internet(Double price, Long number, String email, Operator operator, User user, String forfait) {
         super(price, number, email, operator, user);
         this.forfait = forfait;
     }

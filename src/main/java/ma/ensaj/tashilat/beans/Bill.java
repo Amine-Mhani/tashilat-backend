@@ -13,7 +13,7 @@ import java.util.Date;
 public class Bill {
     @Column(unique = true)
     private String reference;
-    private Long price;
+    private Double price;
     private Date date;
     private String number;
 
@@ -28,7 +28,7 @@ public class Bill {
     private User user;
 
 
-    public Bill(Long price, String number, String email,Operator operator, User user) {
+    public Bill(Double price, Long number, String email,Operator operator, User user) {
         this.reference = "#"+number+""+operator.getOperatorId()+""+price;
         this.price = price;
         this.date = new Date();
@@ -50,11 +50,11 @@ public class Bill {
         this.reference = reference;
     }
 
-    public Long getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(Long price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 

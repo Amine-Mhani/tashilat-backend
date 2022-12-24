@@ -24,13 +24,13 @@ public class User {
     private String type;
 
 
-    public User(String nom, String prenom, String email, String password, Date date_naissance, String phone, String agence) {
+    public User(String nom, String prenom, String email, String password, Date date_naissance, Long phone, String agence) {
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
         this.password = password;
         this.date_naissance = date_naissance;
-        this.phone = phone;
+        this.phone = "+212"+phone;
         this.agence = agence;
         this.type = "Agent";
     }
