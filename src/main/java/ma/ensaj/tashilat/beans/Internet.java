@@ -12,8 +12,14 @@ public class Internet extends Bill{
 
     private String forfait;
 
+    private String reference;
+
+    private String number;
+
     public Internet(Double price, Long number, String email, Operator operator, User user, String forfait) {
-        super(price, number, email, operator, user);
+        super(price, email, operator, user);
+        this.number = "+212-"+number;
+        this.reference = "#"+number+""+operator.getOperatorId()+""+price;
         this.forfait = forfait;
     }
 
@@ -35,5 +41,21 @@ public class Internet extends Bill{
 
     public void setForfait(String forfait) {
         this.forfait = forfait;
+    }
+
+    public String getReference() {
+        return reference;
+    }
+
+    public void setReference(String reference) {
+        this.reference = reference;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
     }
 }

@@ -14,6 +14,10 @@ public class Phone extends Bill{
 
     private String amount;
 
+    private String reference;
+
+    private String number;
+
     public Phone() {
         super();
     }
@@ -27,7 +31,9 @@ public class Phone extends Bill{
     }
 
     public Phone(Double price, Long number, String email, Operator operator, User user, String amount) {
-        super(price, number, email, operator, user);
+        super(price, email, operator, user);
+        this.number = "+212-"+number;
+        this.reference = "#"+number+""+operator.getOperatorId()+""+price;
         this.amount = amount;
     }
 
@@ -37,5 +43,21 @@ public class Phone extends Bill{
 
     public void setAmount(String amount) {
         this.amount = amount;
+    }
+
+    public String getReference() {
+        return reference;
+    }
+
+    public void setReference(String reference) {
+        this.reference = reference;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
     }
 }

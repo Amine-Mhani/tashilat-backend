@@ -11,11 +11,10 @@ import java.util.Date;
 
 @MappedSuperclass
 public class Bill {
-    @Column(unique = true)
-    private String reference;
+
+
     private Double price;
     private Date date;
-    private String number;
 
     private String email;
 
@@ -28,26 +27,16 @@ public class Bill {
     private User user;
 
 
-    public Bill(Double price, Long number, String email,Operator operator, User user) {
-        this.reference = "#"+number+""+operator.getOperatorId()+""+price;
+    public Bill(Double price, String email,Operator operator, User user) {
         this.price = price;
         this.date = new Date();
         this.email = email;
-        this.number = "+212"+number;
         this.operator = operator;
         this.user = user;
     }
 
     public Bill() {
 
-    }
-
-    public String getReference() {
-        return reference;
-    }
-
-    public void setReference(String reference) {
-        this.reference = reference;
     }
 
     public Double getPrice() {
@@ -80,14 +69,6 @@ public class Bill {
 
     public void setUser(User user) {
         this.user = user;
-    }
-
-    public String getNumber() {
-        return number;
-    }
-
-    public void setNumber(String number) {
-        this.number = number;
     }
 
     public String getEmail() {
