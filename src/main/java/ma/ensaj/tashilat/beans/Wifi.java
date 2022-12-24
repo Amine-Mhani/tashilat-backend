@@ -24,8 +24,8 @@ public class Wifi extends Bill{
     @JoinColumn(name = "clientId")
     private Client client;
 
-    public Wifi(String email, Operator operator, User user, String month, Client client) {
-        super(200.0, email, operator, user);
+    public Wifi(Operator operator, User user, String month, Client client) {
+        super(200.0, client.getEmail(), operator, user);
         this.month = month;
         this.reference = "#"+client.getCode()+""+month+""+operator.getOperatorId();
         this.client = client;
@@ -58,5 +58,29 @@ public class Wifi extends Bill{
 
     public void setReference(String reference) {
         this.reference = reference;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
     }
 }
