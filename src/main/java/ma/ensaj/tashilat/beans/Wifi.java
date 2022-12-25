@@ -14,7 +14,6 @@ public class Wifi extends Bill{
 
     private String state;
 
-    @Column(unique = true)
     private String month;
 
     @Column(unique = true)

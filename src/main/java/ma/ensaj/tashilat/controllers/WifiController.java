@@ -30,7 +30,7 @@ public class WifiController {
     }
 
     @PostMapping("/add")
-    public void addInternetBill(@RequestBody Wifi wifi){
+    public void addWifiBill(@RequestBody Wifi wifi){
         User user = userService.findById(1);
         wifi.setUser(user);
         wifi.setDate(new Date());
@@ -43,19 +43,24 @@ public class WifiController {
     }
 
     @GetMapping("/get")
-    public Wifi getClientById(@RequestParam int id) {
+    public Wifi getWifiById(@RequestParam int id) {
         return wifiService.findById(id);
     }
 
     @DeleteMapping("/delete")
-    public void deleteClient(@RequestParam int id){
+    public void deleteWifi(@RequestParam int id){
         wifiService.delete(id);
     }
 
     @PostMapping("/update")
-    public void updateClient(@RequestBody Wifi new_wifi){
+    public void updateWifi(@RequestBody Wifi new_wifi){
         new_wifi = wifiService.findById(new_wifi.getId());
         new_wifi.setState("Payed");
         wifiService.update(new_wifi);
+    }
+
+    @GetMapping("/code/{code}")
+    public List<Wifi> findWifiByCode(@PathVariable String code){
+        return wifiService.findByCode(code);
     }
 }

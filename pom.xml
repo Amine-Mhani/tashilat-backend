@@ -53,6 +53,12 @@
             <artifactId>tomcat-embed-jasper</artifactId>
             <version>10.1.2</version>
         </dependency>
+        <dependency>
+            <groupId>net.sf.ucanaccess</groupId>
+            <artifactId>ucanaccess</artifactId>
+            <version>4.0.1</version>
+        </dependency>
+
     </dependencies>
 
     <build>

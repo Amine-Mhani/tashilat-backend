@@ -34,4 +34,8 @@ public class WifiService {
     public void delete(int id){
         wifiRepository.delete(wifiRepository.findById(id).get());
     }
+
+    public List<Wifi> findByCode(String code){
+       return wifiRepository.findWifiByCodeContains(code);
+    }
 }
