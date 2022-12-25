@@ -56,7 +56,7 @@
         <dependency>
             <groupId>net.sf.ucanaccess</groupId>
             <artifactId>ucanaccess</artifactId>
-            <version>4.0.1</version>
+            <version>5.0.1</version>
         </dependency>
 
     </dependencies>
