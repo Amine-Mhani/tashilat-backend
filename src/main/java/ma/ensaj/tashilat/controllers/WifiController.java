@@ -29,6 +29,11 @@ public class WifiController {
         return wifiService.findAll();
     }
 
+    @GetMapping("/not")
+    public List<Wifi> findNotFound(){
+        return wifiService.findByStateNotPayed();
+    }
+
     @PostMapping("/add")
     public void addWifiBill(@RequestBody Wifi wifi){
         User user = userService.findById(1);
@@ -53,14 +58,24 @@ public class WifiController {
     }
 
     @PostMapping("/update")
-    public void updateWifi(@RequestBody Wifi new_wifi){
+    public Wifi updateWifi(@RequestBody Wifi new_wifi){
+        int id = new_wifi.getUser().getUserId();
+        User user = userService.findById(id);
+
         new_wifi = wifiService.findById(new_wifi.getId());
         new_wifi.setState("Payed");
-        wifiService.update(new_wifi);
+        new_wifi.setUser(user);
+
+        return wifiService.update(new_wifi);
     }
 
     @GetMapping("/code/{code}")
     public List<Wifi> findWifiByCode(@PathVariable String code){
         return wifiService.findByCode(code);
+    }
+
+    @GetMapping("/not-code/{code}")
+    public List<Wifi> findWifiByCodeAndState(@PathVariable String code){
+        return wifiService.findByCodeAndNotPayed(code);
     }
 }

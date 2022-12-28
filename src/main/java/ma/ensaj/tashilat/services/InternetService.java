@@ -22,8 +22,8 @@ public class InternetService {
         return internetRepository.findById(id).get();
     }
 
-    public void create(Internet internet){
-        internetRepository.save(internet);
+    public Internet create(Internet internet){
+        return internetRepository.save(internet);
     }
 
     public void update(Internet internet){

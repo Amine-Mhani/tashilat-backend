@@ -82,4 +82,6 @@ public class Wifi extends Bill{
     public void setClient(Client client) {
         this.client = client;
     }
+
+
 }

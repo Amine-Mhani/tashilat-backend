@@ -8,4 +8,6 @@ import java.util.List;
 public interface WifiRepository extends JpaRepository<Wifi, Integer> {
 
     List<Wifi> findWifiByCodeContains(String code);
+    List<Wifi> findWifisByStateEqualsIgnoreCase(String state);
+    List<Wifi> findWifiByCodeContainsAndStateEqualsIgnoreCase(String code, String state);
 }

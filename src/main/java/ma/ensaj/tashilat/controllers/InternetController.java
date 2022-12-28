@@ -23,13 +23,11 @@ public class InternetController {
     UserService userService;
 
     @PostMapping("/add")
-    public void addInternetBill(@RequestBody Internet internet){
-        User user = userService.findById(1);
-        internet.setUser(user);
+    public Internet addInternetBill(@RequestBody Internet internet){
         internet.setReference("#"+internet.getNumber()+""+internet.getOperator().getOperatorId()+""+internet.getPrice());
         internet.setNumber("+212-"+Long.parseLong(internet.getNumber()));
         internet.setDate(new Date());
-        internetService.create(internet);
+        return internetService.create(internet);
     }
 
     @GetMapping("/all")

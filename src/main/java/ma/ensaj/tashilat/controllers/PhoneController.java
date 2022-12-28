@@ -33,16 +33,14 @@ public class PhoneController {
     }*/
 
     @PostMapping("/add")
-    public void createPhone(@RequestBody Phone phone){
+    public Phone createPhone(@RequestBody Phone phone){
         System.out.println(phone.getOperator().getName());
-        User user = userService.findById(1);
         phone.setPrice(phone.getPrice());
-        phone.setUser(user);
         phone.setAmount(phone.getPrice()+"");
         phone.setReference("#"+phone.getNumber()+""+phone.getOperator().getOperatorId()+""+phone.getPrice());
         phone.setNumber("+212-"+Long.parseLong(phone.getNumber()));
         phone.setDate(new Date());
-        phoneService.create(phone);
+        return phoneService.create(phone);
     }
 
     @GetMapping("/all")

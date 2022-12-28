@@ -22,8 +22,8 @@ public class PhoneService {
         return phoneRepository.findById(id).get();
     }
 
-    public void create(Phone phone){
-        phoneRepository.save(phone);
+    public Phone create(Phone phone){
+        return phoneRepository.save(phone);
     }
 
     public void update(Phone phone){

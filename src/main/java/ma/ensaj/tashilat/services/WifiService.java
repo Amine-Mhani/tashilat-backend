@@ -27,8 +27,8 @@ public class WifiService {
         wifiRepository.save(wifi);
     }
 
-    public void update(Wifi wifi){
-        wifiRepository.save(wifi);
+    public Wifi update(Wifi wifi){
+        return wifiRepository.save(wifi);
     }
 
     public void delete(int id){
@@ -37,5 +37,13 @@ public class WifiService {
 
     public List<Wifi> findByCode(String code){
        return wifiRepository.findWifiByCodeContains(code);
+    }
+
+    public List<Wifi> findByStateNotPayed(){
+        return wifiRepository.findWifisByStateEqualsIgnoreCase("Not payed");
+    }
+
+    public List<Wifi> findByCodeAndNotPayed(String code){
+        return wifiRepository.findWifiByCodeContainsAndStateEqualsIgnoreCase(code, "Not payed");
     }
 }
