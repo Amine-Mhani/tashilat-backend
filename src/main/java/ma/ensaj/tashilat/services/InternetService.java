@@ -1,6 +1,7 @@
 package ma.ensaj.tashilat.services;
 
 import ma.ensaj.tashilat.beans.Internet;
+import ma.ensaj.tashilat.beans.Operator;
 import ma.ensaj.tashilat.beans.Phone;
 import ma.ensaj.tashilat.repositories.InternetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,5 +33,9 @@ public class InternetService {
 
     public void delete(int id){
         internetRepository.delete(internetRepository.findById(id).get());
+    }
+
+    public double getCount(Operator operator){
+        return internetRepository.getTotal(operator);
     }
 }

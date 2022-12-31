@@ -68,4 +68,10 @@ public class PhoneController {
         phoneService.update(new_phone);
     }
 
+    @PostMapping("/total")
+    public String getTotal(@RequestBody Operator operator){
+        double total = phoneService.getCount(operator);
+        return total+"";
+    }
+
 }

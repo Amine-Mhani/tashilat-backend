@@ -1,6 +1,7 @@
 package ma.ensaj.tashilat.services;
 
 
+import ma.ensaj.tashilat.beans.Operator;
 import ma.ensaj.tashilat.beans.Phone;
 import ma.ensaj.tashilat.repositories.PhoneRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,5 +33,9 @@ public class PhoneService {
 
     public void delete(int id){
         phoneRepository.delete(phoneRepository.findById(id).get());
+    }
+
+    public double getCount(Operator operator){
+        return phoneRepository.getTotal(operator);
     }
 }

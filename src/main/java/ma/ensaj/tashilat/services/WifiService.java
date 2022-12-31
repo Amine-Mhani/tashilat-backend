@@ -1,5 +1,6 @@
 package ma.ensaj.tashilat.services;
 
+import ma.ensaj.tashilat.beans.Operator;
 import ma.ensaj.tashilat.beans.Wifi;
 import ma.ensaj.tashilat.repositories.WifiRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,5 +46,9 @@ public class WifiService {
 
     public List<Wifi> findByCodeAndNotPayed(String code){
         return wifiRepository.findWifiByCodeContainsAndStateEqualsIgnoreCase(code, "Not payed");
+    }
+
+    public double getCount(Operator operator){
+        return wifiRepository.getTotal(operator);
     }
 }

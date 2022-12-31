@@ -2,6 +2,8 @@ package ma.ensaj.tashilat.beans;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table
 public class Operator {
@@ -13,6 +15,15 @@ public class Operator {
     private String name;
     @Column(unique = true)
     private String image;
+
+    @OneToMany(mappedBy = "operator", cascade = CascadeType.ALL)
+    private List<Phone> phones;
+
+    @OneToMany(mappedBy = "operator", cascade = CascadeType.ALL)
+    private List<Wifi> wifis;
+
+    @OneToMany(mappedBy = "operator", cascade = CascadeType.ALL)
+    private List<Internet> internets;
 
     public Operator(String name, String image) {
         this.name = name;
