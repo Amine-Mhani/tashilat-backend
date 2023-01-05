@@ -15,7 +15,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/wifi")
+@RequestMapping("/Phone-Internet/wifi")
 public class WifiController {
 
     @Autowired

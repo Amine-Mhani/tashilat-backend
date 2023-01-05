@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/client")
+@RequestMapping("/Phone-Internet/client")
 public class ClientController {
 
     @Autowired

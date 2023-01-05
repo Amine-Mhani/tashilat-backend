@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/operator")
+@RequestMapping("/Phone-Internet/operator")
 public class OperatorController {
 
     @Autowired
